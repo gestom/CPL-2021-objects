@@ -33,6 +33,16 @@ void CVector::setElementValue(int i,float v)
 	x[i] = v;
 }
 
+float& CVector::operator[](int i)
+{
+	if (i < 0 || i >= length)
+	{
+		throw "Out of range at Vector";
+	}
+	return x[i];
+}
+
+
 int CVector::getLength()
 {
 	return length;

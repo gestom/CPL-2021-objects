@@ -14,8 +14,9 @@ class CVector
 		float getElementValue(int i);
 		void setElementValue(int i,float x);
 		CVector add(CVector a);
+		float& operator[](int i);
 
-	protected:
+	private:
 		float *x;
 		int length;
 };
