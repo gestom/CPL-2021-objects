@@ -8,12 +8,13 @@ class CVector
 	public:
 		CVector();
 		CVector(int l,...);
+		CVector(const CVector &a);
 		~CVector();
 		int getLength();
 		void print();
 		float getElementValue(int i);
 		void setElementValue(int i,float x);
-		CVector add(CVector a);
+		CVector operator+(CVector a);
 		float& operator[](int i);
 
 	private:
