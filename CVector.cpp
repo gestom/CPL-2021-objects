@@ -8,7 +8,7 @@ CVector::CVector(int l,...)
 	va_start(valist,l);
 	for (int i = 0; i < length;i++) x[i] = va_arg(valist,double);
 	va_end(valist);
-        printf("Array allocated at %ld\n",(long int)x);	
+//        printf("Array allocated at %ld\n",(long int)x);	
 }
 
 CVector::CVector(const CVector &a)
@@ -16,13 +16,13 @@ CVector::CVector(const CVector &a)
 	length = a.length;
 	x = (float *) malloc(length*sizeof(float));
 	for (int i = 0; i < length;i++) x[i] = a.x[i];
-        printf("Copy of an object performed, allocation at %ld\n",(long int)x);	
+  //      printf("Copy of an object performed, allocation at %ld\n",(long int)x);	
 }
 
 
 CVector::~CVector()
 {
-        printf("Array free at %ld\n",(long int)x);	
+    //    printf("Array free at %ld\n",(long int)x);	
 	free(x);
 }
 
@@ -72,5 +72,11 @@ CVector CVector::operator+(CVector a)
 	for (int i = 0; i < length;i++) r.x[i] = x[i] + a.x[i];
 	return r;
 }
+
+void CVector::operator=(CVector a)
+{
+	for (int i = 0; i < length;i++) x[i] = a.x[i];
+}
+
 
 

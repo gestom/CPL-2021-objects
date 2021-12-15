@@ -11,14 +11,16 @@ class CVector
 		CVector(const CVector &a);
 		~CVector();
 		int getLength();
-		void print();
+		virtual void print();
 		float getElementValue(int i);
 		void setElementValue(int i,float x);
-		CVector operator+(CVector a);
+		virtual CVector operator+(CVector a);
+		void operator=(CVector a);
 		float& operator[](int i);
 
-	private:
+	protected:
 		float *x;
+	private:
 		int length;
 };
 

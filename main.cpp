@@ -1,13 +1,20 @@
-#include "CVector.h"
+#include "CCylinder.h"
 
 int main(int argc,char *argv[])
 {
-	CVector a(3,atof(argv[1]),atof(argv[2]),atof(argv[3]));
-	CVector b(3,1.0,2.0,3.0);
-	a.print();
-	b.print();
-	CVector c = a + b;
-	c.print();
+	CVector *a,*b,*c;
+	if (argv[1][0] == 'V'){
+	       	a = new CVector(2,atof(argv[2]),atof(argv[3]));
+	       	b = new CVector(2,atof(argv[2]),atof(argv[3]));
+	       	c = new CVector(2,2.0,5.0);
+	}
+	if (argv[1][0] == 'C'){
+	       	a = new CCylinder(atof(argv[2]),atof(argv[3]));
+	       	b = new CCylinder(atof(argv[2]),10);
+	       	c = new CCylinder(0,0);
+	}
+	*c = *a + *b;
+	c->print();
 	return 0;
 }
 
